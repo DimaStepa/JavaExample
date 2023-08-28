@@ -81,4 +81,21 @@ public class M4_massive {
         } while (couterDo < 5);
     }
 
+    int[] arr1 = new int[] {1,2,3};
+    int[] arr2 = new int[] {7,8,3};
+    int[][] arrSum = {arr1, arr2};
+    int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arrSum.length; i++) {
+        for (int j = 0; j < arrSum[i].length; j++) {
+            System.out.print(arrSum[i][j]);
+            System.out.print(",");
+            if(arrSum[i][j]>max){
+                max = arrSum[i][j];
+            }
+        }
+    }
+        System.out.println("Максимальное значение рваного массива: "+ max);
+
+
 }
