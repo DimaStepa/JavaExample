@@ -75,5 +75,9 @@ public class M6_1_L {
         System.out.println(betterThanAverage(new int[]{10, 3, 4}, 5));
 
         System.out.println(sayHello(new String[]{"John", "Don", "RUZVELT", "KUKU"}, "BAZINGVA", "URURU"));
+
+
+
     }
 }
+
