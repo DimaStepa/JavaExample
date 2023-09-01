@@ -8,6 +8,7 @@ public static double distance (Point point1, Point point2){   //Point - это �
     return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
 }
+
     public static void main(String[] args) {
 
     Point daleko = new Point(4, 7); //констрактор Point
@@ -20,6 +21,7 @@ public static double distance (Point point1, Point point2){   //Point - это �
 
     blizko.x = 38;
     blizko.y = 41;
+    blizko.x = 39;
 
         System.out.println(distance(daleko,blizko));
 
