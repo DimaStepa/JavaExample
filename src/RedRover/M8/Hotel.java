@@ -8,6 +8,10 @@ public class Hotel  extends  Housing {  // класс Hotel - это вид Hous
 
     int doubleRoom;
 
+    public Hotel (int id){
+        super (id);
+    }
+
     public int getCapacity(){
         return singleRoom + doubleRoom*2;
     }

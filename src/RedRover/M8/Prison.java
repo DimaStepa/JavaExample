@@ -4,6 +4,10 @@ public class Prison extends Housing {
 
 int cells;
 
+    public Prison (int id){
+        super(id);
+    }
+
     public int getCapacity(){
         return 0;
     }
