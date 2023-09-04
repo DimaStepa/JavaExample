@@ -1,5 +1,7 @@
 package CodeWars;
 
+import java.util.Arrays;
+
 public class Level8 {
 
     public static int paperWork(int n, int m)
@@ -33,6 +35,59 @@ Floats with decimal part non equal to zero are considered UNeven for this kata.
         return "nothing";
     }
 
+    /*
+It's pretty straightforward.
+Your goal is to create a function that removes the first and last characters of a string.
+You're given one parameter, the original string.
+You don't have to worry with strings with less than two characters.
+     */
+
+
+    public static String remove(String str) {
+        String word = "";;
+        for (int i = 1; i < str.length()-1; i++) {
+            word = word + str.charAt(i);
+        }
+        return word;
+    }
+
+
+    public static String printArray(Object[] array) {
+        String word = "";
+        for (int i = 0; i < array.length; i++) {
+            if (i == array.length-1) {
+                word = word + array[i];
+            }
+            else {
+                word = word + array[i] + ",";
+            }
+        }
+        return word;
+    }
+
+    /*
+    Complete the method that takes a boolean value and return
+    a "Yes" string for true, or a "No" string for false.
+     */
+
+    public static String boolToWord(boolean b)
+    {
+        String answer = b == true ? "Yes" : "No";
+        return answer;
+    }
+
+
+    static public boolean AmIAfraid(final String day, final int num) {
+        return (day.equals("Monday") && num == 12) ||
+                (day.equals("Tuesday") && num > 95) ||
+                (day.equals("Wednesday") && num == 34) ||
+                (day.equals("Thursday") && num == 0) ||
+                (day.equals("Friday") && num % 2 == 0) ||
+                (day.equals("Saturday") && num == 56) ||
+                (day.equals("Sunday") && (num == 666 || num == -666))
+                ? true : false;
+    }
+
 
     public static void main(String[] args) {
 
@@ -42,6 +97,13 @@ Floats with decimal part non equal to zero are considered UNeven for this kata.
         System.out.println(isEven(10));
 
         System.out.println(chromosomeCheck("Y"));
+
+        System.out.println(remove("Low"));
+
+        String result = printArray(new String[]{"333","jjj", "l", "a"});
+        System.out.println(result);
+
+        System.out.println(boolToWord(false));
 
 
     }

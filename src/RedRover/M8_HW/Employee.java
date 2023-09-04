@@ -1,20 +1,29 @@
 package RedRover.M8_HW;
 
-public class Employee {
+public class Employee extends DataBase {
 
-    String setName;
+    String name;
     int setBaseSalary;
+
+    public static void fuu() {
+    }
 
 
     public String getName(){
-        return setName;
+
+        return name;
     }
+    
+//    public void setName(String name){
+//        this.name = name;
+//    }
+    
     public int getBaseSalary(){
         return setBaseSalary;
     }
 
-    public int getSalary(){
-        return setBaseSalary*8*21;
+    public double getSalary(){
+        return setBaseSalary*8*21.0;
     }
 
 

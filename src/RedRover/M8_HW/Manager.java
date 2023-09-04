@@ -1,9 +1,14 @@
 package RedRover.M8_HW;
 
-public class Manager {
+public class Manager extends DataBase{
 
     int setNumberOfSubordinates;
-    String Name;
+    String name;
+
+    public String getName(){
+
+        return name;
+    }
 
     public int getNumberOfSubordinates (){
         return setNumberOfSubordinates;
