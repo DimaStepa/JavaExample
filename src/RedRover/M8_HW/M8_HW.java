@@ -7,7 +7,7 @@ public class M8_HW {
         Employee footballer = new Employee();
         footballer.name = "John Don";
 //        footballer.setName("Don");
-        String emploeeName1 = footballer.getName();
+//        String emploeeName1 = footballer.getName();
 
 
         footballer.setBaseSalary = 500;
@@ -25,10 +25,13 @@ public class M8_HW {
 
         Manager manager1 = new Manager();
         Manager manager2 = new Manager();
+        Manager manager3 = new Manager();
         manager1.name = "Pirogi And Cotlety";
         manager2.name = "Dochki Sinochki";
+        manager3.name = "COPU";
         manager1.setNumberOfSubordinates = 21;
-        manager2.setNumberOfSubordinates = 0;
+        manager2.setNumberOfSubordinates = 7;
+        manager3.setNumberOfSubordinates = 11;
         System.out.println("Numbers of subordinates is " + manager1.name +
                 ": " + manager1.setNumberOfSubordinates);
         System.out.println("Salary of subordinates is " + manager1.name +
@@ -36,7 +39,9 @@ public class M8_HW {
         System.out.println("Numbers of subordinates is " + manager2.name +
                 ": " + manager2.setNumberOfSubordinates);
         System.out.println("Salary of subordinates is " + manager2.name +
-                ": " + manager2.getSalary());
+                ": " + manager3.getSalary());
+        System.out.println("Salary of subordinates is " + manager2.name +
+                ": " + manager3.getSalary());
 
         System.out.println("------------------");
 
@@ -61,14 +66,46 @@ public class M8_HW {
 
         ManagementCount nameArray = new ManagementCount();
         nameArray.dataBases = new DataBase[]{footballer,manager1,manager2,director1,director2};
-        System.out.println(nameArray.searchNameForName("John Don"));
-        System.out.println(nameArray.searchNameForName("Sinochkin"));
+        nameArray.searchNameForName("JOHN DON");
+        nameArray.searchNameForName("Sino");
 
 
         System.out.println("--------______________----------");
-        System.out.println("--------Определение бюджета----------");
+        System.out.println("--------ПОИСК ПО ВХОЖДЕНИЮ СТРОКИ----------");
         System.out.println("--------______________----------");
-        System.out.println(nameArray.capacitySalary(100000));
+
+        System.out.println(nameArray.searchSubstringNameForName("John"));
+        System.out.println(nameArray.searchSubstringNameForName("Sino"));
+
+
+//        System.out.println("--------______________----------");
+//        System.out.println("--------Определение бюджета----------");
+//        System.out.println("--------______________----------");
+//        System.out.println(nameArray.capacitySalary(100000));
+//
+//        System.out.println("--------______________----------");
+//        System.out.println("--------Минимальная зарплата----------");
+//        System.out.println("--------______________----------");
+//        nameArray.searchMinSalary();
+//
+//
+//        System.out.println("--------______________----------");
+//        System.out.println("-------- Минимальное кол-во сотрудников у каждого Manager----------");
+//        System.out.println("--------______________----------");
+//        ManagementCount searchLimitArrayManager = new ManagementCount();
+//        searchLimitArrayManager.dataBases = new DataBase[] {manager1,manager2,manager3};
+//        searchLimitArrayManager.searchMinSubordinatesInManagers();
+//
+//
+//        System.out.println("--------______________----------");
+//        System.out.println("-------- Минимальная надбавка----------");
+//        System.out.println("--------______________----------");
+//        searchLimitArrayManager.searchMinAdditionSalary();
+//
+//        System.out.println("--------______________----------");
+//        System.out.println("-------- Максимальная надбавка----------");
+//        System.out.println("--------______________----------");
+//        searchLimitArrayManager.searchMaxAdditionSalary();
 
 
 

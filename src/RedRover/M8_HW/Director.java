@@ -3,6 +3,8 @@ package RedRover.M8_HW;
 public class Director extends DataBase {
 
     int setNumberOfSubordinates;
+
+    int setBaseSalary;
     String name;
 
     public String getName(){
@@ -14,6 +16,11 @@ public class Director extends DataBase {
         return setNumberOfSubordinates;
 
     }
+
+    public int getBaseSalary(){
+        return setBaseSalary;
+    }
+
 
     public double getSalary(){
         int setBaseSalary = 123;
