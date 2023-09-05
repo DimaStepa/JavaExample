@@ -9,30 +9,30 @@ public class ManagementCount {
 
 
     public void searchNameForName(String searchName) {
+        int count = 0;
         for (int i = 0; i < dataBases.length; i++) {
             DataBase person = dataBases[i];
            System.out.println(person.getName());
             if (person.getName().toLowerCase().equals(searchName.toLowerCase())) {
                 System.out.println("Такой персонаж существует: " + person.getName());
+                count += 1;
             }
-            if (i == dataBases.length -1 && !person.getName().toLowerCase().equals(searchName.toLowerCase())) {
-                System.out.println(person.getName() + "- Такой персонаж НЕ существует");
-
             }
+        System.out.println("Поиск завершен. Кол-во совпадений:" + count);
         }
-    }
 
-    public String searchSubstringNameForName(String searchName) {
+
+    public void searchSubstringNameForName(String searchName2) {
+        int count = 0;
         for (int i = 0; i < dataBases.length; i++) {
             DataBase person = dataBases[i];
             System.out.println(person.getName());
-            if (person.getName().contains(searchName)) {
-                return "Такой персонаж существует. Имя: " + person.getName();
-            } else {
-                return "Такой персонажа НЕТ";
+            if (person.getName().contains(searchName2)) {
+                System.out.println("Такой персонаж существует: " + person.getName());
+                count += 1;
             }
-        }
-        return null;
+            }
+        System.out.println("Поиск завершен. Кол-во совпадений:" + count);
     }
 
     public String capacitySalary(int budget) {

@@ -74,8 +74,9 @@ public class M8_HW {
         System.out.println("--------ПОИСК ПО ВХОЖДЕНИЮ СТРОКИ----------");
         System.out.println("--------______________----------");
 
-        System.out.println(nameArray.searchSubstringNameForName("John"));
-        System.out.println(nameArray.searchSubstringNameForName("Sino"));
+        nameArray.searchSubstringNameForName("John");
+        nameArray.searchSubstringNameForName("Sino");
+        nameArray.searchSubstringNameForName("Sin12");
 
 
 //        System.out.println("--------______________----------");
