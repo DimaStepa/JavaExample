@@ -88,6 +88,47 @@ You don't have to worry with strings with less than two characters.
                 ? true : false;
     }
 
+    /*
+ Create a function that accepts a string and a single character,
+ and returns an integer of the count of occurrences the 2nd argument
+ is found in the first one.
+     */
+
+    public static int strCount(String str, char letter) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == letter){
+                count +=1;
+            }
+        }
+        return count;
+    }
+
+
+    /*
+Numbers ending with zeros are boring.
+They might be fun in your world, but not here.
+Get rid of them. Only the ending ones.
+     */
+
+    public static int noBoringZeros(int n) {
+        String str = Integer.toString(n);
+        String shortNumber = "";
+        int count = 0;
+        for (int i = str.length()-1; i > 0 ; i--) {
+            if (str.charAt(i) != '0') {
+                break;
+            }
+            count += 1;
+            System.out.println(str.charAt(i));
+        }
+        for (int i = 0; i < str.length()-count; i++) {
+            shortNumber += str.charAt(i);
+        }
+        int intShortNumber = Integer.parseInt(shortNumber);
+        return intShortNumber;
+    }
+
 
     public static void main(String[] args) {
 
@@ -104,6 +145,8 @@ You don't have to worry with strings with less than two characters.
         System.out.println(result);
 
         System.out.println(boolToWord(false));
+
+        System.out.println(noBoringZeros(204000));
 
 
     }
