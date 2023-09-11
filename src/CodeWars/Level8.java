@@ -1,6 +1,7 @@
 package CodeWars;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Level8 {
 
@@ -129,9 +130,43 @@ Get rid of them. Only the ending ones.
         return intShortNumber;
     }
 
+    /*
+Complete the solution so that it reverses
+the string passed into it.
+    */
+
+    public static String solution(String str) {
+        String reverseWord = "";
+        for (int i = str.length()-1; i >=0; i--) {
+            reverseWord += str.charAt(i);
+        }
+        return reverseWord;
+    }
+
+    /*
+In this kata, you are asked to square every digit of a number and concatenate them.
+For example, if we run 9119 through the function, 811181 will come out,
+because 92 is 81 and 12 is 1. (81-1-1-81)
+     */
+    public static int squareDigits(int n) {
+        String str = Integer.toString(n);
+        String charStr, squareNumber, newNumber;
+        newNumber = "";
+        int count;
+        for (int i = 0; i < str.length(); i++) {
+            charStr = "";
+            charStr = charStr + str.charAt(i);
+            count = Integer.parseInt(charStr);
+            count *= count;
+            newNumber = newNumber + Integer.toString(count);
+        }
+        return Integer.parseInt(newNumber);
+
+    }
+
+
 
     public static void main(String[] args) {
-
 
         System.out.println(paperWork(32,12));
 
@@ -148,6 +183,19 @@ Get rid of them. Only the ending ones.
 
         System.out.println(noBoringZeros(204000));
 
+        System.out.println(solution("world"));
+
+        /*
+        //Угадай число
+        Scanner text = new Scanner(System.in);
+        System.out.println("Введите 2 числа: мин, макс");
+        int min = text.nextInt();
+        int max = text.nextInt();
+        Algorithm vuzovAlgorith = new Algorithm();
+        vuzovAlgorith.BinarnySearch(min, max);
+         */
+
+        System.out.println(squareDigits(10009));
 
     }
 

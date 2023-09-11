@@ -27,6 +27,7 @@ public class M10_L {
         System.out.println(biology7a.getFinalGrade("Петров"));
 
 
+
     }
 
 
