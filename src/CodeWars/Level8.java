@@ -1,7 +1,6 @@
 package CodeWars;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Level8 {
 
@@ -164,7 +163,27 @@ because 92 is 81 and 12 is 1. (81-1-1-81)
 
     }
 
+/*
+Take 2 strings s1 and s2 including only letters from a to z.
+Return a new sorted string, the longest possible, containing distinct letters
+- each taken only once - coming from s1 or s2.
+ */
 
+    public static String sortArray (String s1, String s2 ){
+        String strNew = "";
+        String sumS = s1 + s2;
+        char[] chars = sumS.toCharArray(); // преобразование строки в массив из символов
+        Arrays.sort(chars);     //соритировка элементов в списке
+        System.out.println(chars);
+        for (int i = 0; i < chars.length-1; i++) {
+                if ( chars[i] != chars[i+1]){
+                    strNew += chars[i];
+                }
+
+            }
+        strNew = strNew + chars[chars.length-1];
+        return strNew;
+        }
 
     public static void main(String[] args) {
 
@@ -196,6 +215,8 @@ because 92 is 81 and 12 is 1. (81-1-1-81)
          */
 
         System.out.println(squareDigits(10009));
+
+        System.out.println(sortArray("abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz"));
 
     }
 
