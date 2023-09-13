@@ -175,13 +175,13 @@ Return a new sorted string, the longest possible, containing distinct letters
         char[] chars = sumS.toCharArray(); // преобразование строки в массив из символов
         Arrays.sort(chars);     //соритировка элементов в списке
         System.out.println(chars);
-        for (int i = 0; i < chars.length-1; i++) {
-                if ( chars[i] != chars[i+1]){
-                    strNew += chars[i];
-                }
-
-            }
-        strNew = strNew + chars[chars.length-1];
+//        for (int i = 0; i < chars.length-1; i++) {
+//                if ( chars[i] != chars[i+1]){
+//                    strNew += chars[i];
+//                }
+//
+//            }
+//        strNew = strNew + chars[chars.length-1];
         return strNew;
         }
 
