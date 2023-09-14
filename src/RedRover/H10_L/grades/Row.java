@@ -1,8 +1,6 @@
-package RedRover.H10_L;
+package RedRover.H10_L.grades;
 
-import java.util.Arrays;
-
-public class Row {
+class Row {
 
     private String studentName;
 

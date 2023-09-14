@@ -1,4 +1,7 @@
-package RedRover.H10_L;
+package RedRover.H10_L.grades;
+
+import RedRover.H10_L.grades.Grade;
+import RedRover.H10_L.grades.Row;
 
 public class SubjectRegister {
     private Row[] rows;

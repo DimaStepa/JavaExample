@@ -1,4 +1,4 @@
-package RedRover.H10_L;
+package RedRover.H10_L.grades;
 
 public class Grade {
 

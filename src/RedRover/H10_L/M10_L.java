@@ -1,5 +1,8 @@
 package RedRover.H10_L;
 
+import RedRover.H10_L.grades.Grade;
+import RedRover.H10_L.grades.SubjectRegister;
+
 public class M10_L {
 
     public static void main(String[] args) {
