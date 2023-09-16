@@ -175,15 +175,29 @@ Return a new sorted string, the longest possible, containing distinct letters
         char[] chars = sumS.toCharArray(); // преобразование строки в массив из символов
         Arrays.sort(chars);     //соритировка элементов в списке
         System.out.println(chars);
-//        for (int i = 0; i < chars.length-1; i++) {
-//                if ( chars[i] != chars[i+1]){
-//                    strNew += chars[i];
-//                }
-//
-//            }
-//        strNew = strNew + chars[chars.length-1];
         return strNew;
         }
+
+        /*
+An isogram is a word that has no repeating letters, consecutive or non-consecutive.
+Implement a function that determines whether a string that contains only letters is an isogram.
+Assume the empty string is an isogram. Ignore letter case.
+Example: (Input --> Output)
+"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)
+         */
+
+
+    public static boolean  isIsogram(String str) {
+        str = str.toLowerCase();
+        for (int i = 0; i < str.length()-1; i++){
+            for (int j = i+1; j < str.length(); j++) {
+                if (str.charAt(j) == str.charAt(i)){
+                    return false;
+                    }
+                }
+            }
+        return true;
+    }
 
     public static void main(String[] args) {
 
@@ -217,6 +231,9 @@ Return a new sorted string, the longest possible, containing distinct letters
         System.out.println(squareDigits(10009));
 
         System.out.println(sortArray("abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz"));
+
+        System.out.println(isIsogram(""));
+
 
     }
 
