@@ -10,13 +10,13 @@ public class SearchMaxNumber {
         List<Integer> listOfNumbers = new ArrayList<>();
         Scanner numberReader = new Scanner(System.in);
         Scanner userAnswerReader = new Scanner(System.in);
-
-        String userAnswer = "нет";
-        while (userAnswer.equals("нет")) {
+        String confirm = "нет";
+        String userAnswer = confirm;
+        while (userAnswer.equals(confirm)) {
             System.out.println("Введите число: ");
             int givenNumber = numberReader.nextInt();
             listOfNumbers.add(givenNumber);
-            System.out.println("Вы ввели все числа? да/нет");
+            System.out.println("Вы ввели все числа? да/" + confirm);
             userAnswer = userAnswerReader.next();
         }
         return listOfNumbers;
