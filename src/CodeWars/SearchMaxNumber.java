@@ -24,6 +24,8 @@ public class SearchMaxNumber {
 
     public static int searchMaxNumber(List<Integer> listOfNumbers){
         if(listOfNumbers == null || listOfNumbers.isEmpty()){
+            // throw - оператор класса Throwable
+            // IllegalArgumentException - это исключение, которое генерируется при передаче некорректных аргументов методу
             throw new IllegalArgumentException("Given list is empty or null");
         }
         int max = listOfNumbers.get(0);
