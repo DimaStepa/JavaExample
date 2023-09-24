@@ -1,9 +1,7 @@
 package CodeWars;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Level6 {
@@ -93,6 +91,26 @@ such that the sum of the digits of n taken to the successive powers of p is equa
         return ((sum % n == 0) ? sum / n : -1);
     }
 
+    /*
+The main idea is to count all the occurring characters in a string.
+If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+What if the string is empty? Then the result should be empty object literal, {}.
+     */
+
+        public static Map<Character, Integer> count(String str) {
+            Map<Character, Integer> count = new HashMap<>();
+            for (int i = 0; i < str.length(); i++) {
+                int newCount = 0;
+                for (int j = 0; j < str.length(); j++) {
+                    if (str.charAt(j) == str.charAt(i)){
+                        newCount += 1;
+                    }
+                }
+                count.put(str.charAt(i), newCount);
+            }
+            return count;
+        }
+
 
 
     public static void main(String[] args) {
@@ -105,6 +123,8 @@ such that the sum of the digits of n taken to the successive powers of p is equa
         System.out.println(persistence(999));
 
         System.out.println(searchK(89,1));
+
+        System.out.println(count("abaaaaabbc"));
 
 
 
