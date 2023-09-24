@@ -1,6 +1,11 @@
 package CodeWars;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Level6 {
 
     /*
@@ -59,6 +64,36 @@ For example (Input --> Output):
         return count;
     }
 
+    /*
+Some numbers have funny properties. For example:
+89 --> 8¹ + 9² = 89 * 1
+Given a positive integer n written as abcd... (a, b, c, d... being digits)
+and a positive integer p
+we want to find a positive integer k, if it exists,
+such that the sum of the digits of n taken to the successive powers of p is equal to k * n.
+     */
+
+    public static int searchK (int n, int p){
+//       Спросить у Артема: https://javarush.com/help/36640
+//        List<Integer> numbers = Arrays
+//            .stream(String.valueOf(n).split(""))  //
+//            .map(Integer::valueOf)                      //преобразовываем Integer в значение
+//            .collect(Collectors.toList());
+        int sum = 0;
+        List <Integer> numbers = new ArrayList<Integer>();
+        String[] str = String.valueOf(n).split("");
+        for (int i = 0; i < str.length; i++) {
+            numbers.add(Integer.valueOf(str[i]));
+        }
+        for (int i = 0; i < numbers.size(); i++) {
+            int newN = numbers.get(i);
+            sum = (int) (sum + Math.pow(newN,p));
+            p +=1;
+        }
+        return ((sum % n == 0) ? sum / n : -1);
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -68,6 +103,8 @@ For example (Input --> Output):
         System.out.println(isValid(new char[] {'n','n','n','s','n','s','n','s','n','s'}));
 
         System.out.println(persistence(999));
+
+        System.out.println(searchK(89,1));
 
 
 
