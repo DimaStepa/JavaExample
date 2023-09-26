@@ -3,6 +3,7 @@ package CodeWars;
 import java.lang.reflect.Array;
 import java.security.SecureRandom;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class RockScissorsPaper {
 
@@ -28,7 +29,7 @@ public class RockScissorsPaper {
     }
 
     //Сделать выбор
-    public static String game (){
+    public static void game (){
         Scanner numberChangeReader = new Scanner(System.in);
         Scanner userChangeReader = new Scanner(System.in);
         int numberGame;
@@ -45,8 +46,10 @@ public class RockScissorsPaper {
         while (userAnswer.equals(confirm)) {
         System.out.println("Введите номер игры:\n1. Классическая игра\n2. Игра Шелдона");
         numberGame = numberChangeReader.nextInt();
+
         switch (numberGame){
             case (1):
+                changeGame.clear();
                 for (int i = 0; i < gameRockScissorsPaper().size(); i++){
                     changeGame.add("");
                 }
@@ -54,24 +57,27 @@ public class RockScissorsPaper {
                 System.out.println("Поздравляю\nТы выбрал классическую игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА");
                 break;
             case (2):
+                changeGame.clear();
                 for (int i = 0; i < gameRockScissorsPaperLizardSpock().size(); i++)
                     changeGame.add("");
                 Collections.copy(changeGame,gameRockScissorsPaperLizardSpock());
-                System.out.println("Поздравляю\nТы выбрал игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА-ЯЩЕРИЦА-СПОК");
-                break;
-            default:
-                System.out.println("Ты ввел не те значения, пока!");
+                System.out.println("Ты выбрал игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА-ЯЩЕРИЦА-СПОК");
                 break;
         }
         System.out.println("Сейчас компьютер выберет вариант");
-        computerChange = "";
+        System.out.println(changeGame);
         computerChange = changeGame.get(random.nextInt(changeGame.size()));
+        //Пауза между перед выводом строки
+        try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         System.out.println("Компьютер загадал вариант, введите ваше значение");
         userChange = userChangeReader.next();
         System.out.println(computerChange);
-//        String[] userChange = new String[]{computerChange,userChange};
-//        System.out.println(Arrays.toString(userChange));
 
+        //условия сравнения
             switch (computerChange) {
                 case ("камень"):
                     switch (userChange) {
@@ -196,17 +202,29 @@ public class RockScissorsPaper {
             System.out.println("Вы закончили играть да/" + confirm);
             userAnswer = userAnswerReader.next();
         }
-        String result = "Общий счет:\n Компьютер: " + Integer.toString(countComputer)
-                +"\nПользователь: " +  Integer.toString(countUser);
-        return result;
-
+        System.out.println("Общий счет:\nКомпьютер " + Integer.toString(countComputer)
+                + ":" + Integer.toString(countUser) + " Игрок");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (countComputer > countUser){
+            System.out.println("Победил компьютер");
+        } else if (countComputer < countUser) {
+            System.out.println("Победил Игрок");
+        }
+        else
+        {
+            System.out.println("Победил дружба/жвачка");
+        }
         }
 
 
 
 
     public static void main(String[] args) {
-        System.out.println(game());
+        game();
     }
 
 }
