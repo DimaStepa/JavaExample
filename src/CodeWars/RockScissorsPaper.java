@@ -28,7 +28,7 @@ public class RockScissorsPaper {
         return list;
     }
 
-    //Сделать выбор
+    //Сама игра
     public static void game (){
         Scanner numberChangeReader = new Scanner(System.in);
         Scanner userChangeReader = new Scanner(System.in);
