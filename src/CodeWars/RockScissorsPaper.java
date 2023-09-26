@@ -1,9 +1,9 @@
 package CodeWars;
 
-import java.lang.reflect.Array;
+
 import java.security.SecureRandom;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
+
 
 public class RockScissorsPaper {
 
@@ -67,13 +67,18 @@ public class RockScissorsPaper {
         System.out.println("Сейчас компьютер выберет вариант");
         System.out.println(changeGame);
         computerChange = changeGame.get(random.nextInt(changeGame.size()));
-        //Пауза между перед выводом строки
-        try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            System.out.print("Комьютер выбирает вариант ");
+            for (int i = 0; i < 3; i++) {
+                //Пауза между перед выводом строки
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.print(". ");
             }
-        System.out.println("Компьютер загадал вариант, введите ваше значение");
+
+        System.out.println("\nКомпьютер загадал вариант, введите ваше значение");
         userChange = userChangeReader.next();
         System.out.println(computerChange);
 
@@ -216,7 +221,7 @@ public class RockScissorsPaper {
         }
         else
         {
-            System.out.println("Победил дружба/жвачка");
+            System.out.println("Победила дружба/жвачка");
         }
         }
 
