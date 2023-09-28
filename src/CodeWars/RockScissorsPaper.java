@@ -29,7 +29,7 @@ public class RockScissorsPaper {
     }
 
     //Сама игра
-    public static void game (){
+    public static void game() {
         Scanner numberChangeReader = new Scanner(System.in);
         Scanner userChangeReader = new Scanner(System.in);
         int numberGame;
@@ -44,29 +44,29 @@ public class RockScissorsPaper {
         String userAnswer = confirm;
 
         while (userAnswer.equals(confirm)) {
-        System.out.println("Введите номер игры:\n1. Классическая игра\n2. Игра Шелдона");
-        numberGame = numberChangeReader.nextInt();
+            System.out.println("Введите номер игры:\n1. Классическая игра\n2. Игра Шелдона");
+            numberGame = numberChangeReader.nextInt();
 
-        switch (numberGame){
-            case (1):
-                changeGame.clear();
-                for (int i = 0; i < gameRockScissorsPaper().size(); i++){
-                    changeGame.add("");
-                }
-                Collections.copy(changeGame,gameRockScissorsPaper());
-                System.out.println("Поздравляю\nТы выбрал классическую игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА");
-                break;
-            case (2):
-                changeGame.clear();
-                for (int i = 0; i < gameRockScissorsPaperLizardSpock().size(); i++)
-                    changeGame.add("");
-                Collections.copy(changeGame,gameRockScissorsPaperLizardSpock());
-                System.out.println("Ты выбрал игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА-ЯЩЕРИЦА-СПОК");
-                break;
-        }
-        System.out.println("Сейчас компьютер выберет вариант");
-        System.out.println(changeGame);
-        computerChange = changeGame.get(random.nextInt(changeGame.size()));
+            switch (numberGame) {
+                case (1):
+                    changeGame.clear();
+                    for (int i = 0; i < gameRockScissorsPaper().size(); i++) {
+                        changeGame.add("");
+                    }
+                    Collections.copy(changeGame, gameRockScissorsPaper());
+                    System.out.println("Поздравляю\nТы выбрал классическую игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА");
+                    break;
+                case (2):
+                    changeGame.clear();
+                    for (int i = 0; i < gameRockScissorsPaperLizardSpock().size(); i++)
+                        changeGame.add("");
+                    Collections.copy(changeGame, gameRockScissorsPaperLizardSpock());
+                    System.out.println("Ты выбрал игру КАМЕНЬ-НОЖНИЦЫ-БУМАГА-ЯЩЕРИЦА-СПОК");
+                    break;
+            }
+            System.out.println("Сейчас компьютер выберет вариант");
+            System.out.println(changeGame);
+            computerChange = changeGame.get(random.nextInt(changeGame.size()));
             System.out.print("Комьютер выбирает вариант ");
             for (int i = 0; i < 3; i++) {
                 //Пауза между перед выводом строки
@@ -78,11 +78,11 @@ public class RockScissorsPaper {
                 System.out.print(". ");
             }
 
-        System.out.println("\nКомпьютер загадал вариант, введите ваше значение");
-        userChange = userChangeReader.next();
-        System.out.println(computerChange);
+            System.out.println("\nКомпьютер загадал вариант, введите ваше значение");
+            userChange = userChangeReader.next();
+            System.out.println(computerChange);
 
-        //условия сравнения
+            //условия сравнения
             switch (computerChange) {
                 case ("камень"):
                     switch (userChange) {
@@ -214,18 +214,14 @@ public class RockScissorsPaper {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (countComputer > countUser){
+        if (countComputer > countUser) {
             System.out.println("Победил компьютер");
         } else if (countComputer < countUser) {
             System.out.println("Победил Игрок");
-        }
-        else
-        {
+        } else {
             System.out.println("Победила дружба/жвачка");
         }
-        }
-
-
+    }
 
 
     public static void main(String[] args) {
@@ -233,4 +229,5 @@ public class RockScissorsPaper {
     }
 
 }
+
 

@@ -111,20 +111,51 @@ What if the string is empty? Then the result should be empty object literal, {}.
             return count;
         }
 
+/*
+Given an array of integers,
+find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+ */
 
+    	public static int findIt(int[] a) {
+            Map<Integer, Integer> unsortedMap = new HashMap<>();
+            Integer findValue = Integer.MAX_VALUE;
+            Integer findKey = 0;
+            for (int i = 0; i < a.length; i++) {
+                int count = 0;
+                for (int j = 0; j < a.length; j++) {
+                    if (a[i] == a[j]){
+                        count +=1;
+                    }
+                }
+                unsortedMap.put(a[i], count);
+            }
+            System.out.println(unsortedMap);
+            for(Map.Entry<Integer, Integer> searchValue : unsortedMap.entrySet()){
+                Integer value = searchValue.getValue();
+                if (value % 2 == 1 && findValue > value){
+                    findKey = searchValue.getKey();
+                }
+
+            }
+        return findKey;
+    }
 
     public static void main(String[] args) {
 
 //        System.out.println(isValid(new char[] {'n','s','n','s','n','s','n','s','n','s'}));
 //        System.out.println(isValid(new char[] {'w','e','w','e','w','e','w','e','w','e','w','e'}));
 //        System.out.println(isValid(new char[] {'w'}));
-        System.out.println(isValid(new char[] {'n','n','n','s','n','s','n','s','n','s'}));
+//        System.out.println(isValid(new char[] {'n','n','n','s','n','s','n','s','n','s'}));
+//
+//        System.out.println(persistence(999));
+//
+//        System.out.println(searchK(89,1));
+//
+//        System.out.println(count("abaaaaabbc"));
 
-        System.out.println(persistence(999));
-
-        System.out.println(searchK(89,1));
-
-        System.out.println(count("abaaaaabbc"));
+        System.out.println(findIt(new int[]{20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5}));
 
 
 
