@@ -1,6 +1,8 @@
 package RedRover.M20_HW;
 
-public interface TransformHW <T> {
+import java.util.List;
 
-    T transformOriginal(T original);
+public interface TransformHW <SOURCE,RESULT> {
+
+    List<RESULT> transformOriginal(SOURCE original);
 }

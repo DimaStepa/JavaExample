@@ -52,16 +52,6 @@ public class UtilsHW {
         return checker;
     }
 
-    public static int maxNumber(List<Integer> list) {
-        int e = Integer.MIN_VALUE;
-        for (int i = 0; i < list.size(); i++) {
-            if (e < list.get(i)) {
-                e = list.get(i);
-            }
-        }
-        return e;
-    }
-
     public static int maxListList(List<List<Integer>> source) {
         int result = Integer.MIN_VALUE;
         for (List<Integer> list1 : source) {
@@ -72,5 +62,32 @@ public class UtilsHW {
             }
         }
         return result;
+    }
+
+    //переделелал домашку отсюда
+    public static <SOURCE, RESULT> List<RESULT> flatten(List<SOURCE> source, TransformHW<SOURCE, RESULT> transformHW) {
+        List<RESULT> results = new ArrayList<>();
+        for (SOURCE element : source) {
+            results.addAll(transformHW.transformOriginal(element));
+        }
+        return results;
+    }
+
+    public static Integer maxNumber(List<List<Integer>> source) {
+        List<Integer> allListInts =  flatten(source, (List<Integer> list) -> list);
+        return getMax(allListInts);
+    }
+
+    public static <T extends Comparable<T>> T getMax(List<T> source) {
+        if (source.isEmpty()) {
+            throw new IllegalArgumentException("ЧТО ПРОИСХОДИТ");
+        }
+        T currentMax = source.get(0);
+        for (T element : source) {
+            if (element.compareTo(currentMax) > 0) {
+                currentMax = element;
+            }
+        }
+        return currentMax;
     }
 }
