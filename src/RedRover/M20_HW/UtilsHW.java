@@ -36,16 +36,6 @@ public class UtilsHW {
                 .collect(Collectors.toList()); //собрать все что есть в стриме и выдать список
     }
 
-//    public static <T> List<T> filterListInteger (List<T> source, List<T> checker){
-//        List<T> result = new ArrayList<>();
-//        for (T currentElement: source) {
-//            if (checker.check(currentElement)){
-//                result.add(currentElement);
-//            }
-//        }
-//        return result;
-//    }
-
     public static List<Integer> flattenInts(List<Integer> source) {
         List<Integer> checker = new ArrayList<>();
         for (Integer newElement : source) {
@@ -60,5 +50,27 @@ public class UtilsHW {
             }
         }
         return checker;
+    }
+
+    public static int maxNumber(List<Integer> list) {
+        int e = Integer.MIN_VALUE;
+        for (int i = 0; i < list.size(); i++) {
+            if (e < list.get(i)) {
+                e = list.get(i);
+            }
+        }
+        return e;
+    }
+
+    public static int maxListList(List<List<Integer>> source) {
+        int result = Integer.MIN_VALUE;
+        for (List<Integer> list1 : source) {
+            for (int i = 0; i < list1.size(); i++) {
+                if (result < list1.get(i)) {
+                    result = list1.get(i);
+                }
+            }
+        }
+        return result;
     }
 }

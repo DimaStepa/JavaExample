@@ -14,5 +14,11 @@ public class M20_HW {
         List<Integer> listInt = List.of(3, 0, -4, 2);
         System.out.println(UtilsHW.flattenInts(listInt));
 
+        System.out.println(UtilsHW.maxNumber(UtilsHW.flattenInts(listInt)));
+
+        List<List<Integer>> listInnerList = List.of(List.of(1,2,4), List.of(-10, 100,20), List.of(-10,-20,-22));
+
+        System.out.println(UtilsHW.maxListList(listInnerList));
+
     }
 }
