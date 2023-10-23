@@ -2,7 +2,9 @@ package RedRover.M20_HW;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 
@@ -55,9 +57,9 @@ public class UtilsHW {
     public static int maxListList(List<List<Integer>> source) {
         int result = Integer.MIN_VALUE;
         for (List<Integer> list1 : source) {
-            for (int i = 0; i < list1.size(); i++) {
-                if (result < list1.get(i)) {
-                    result = list1.get(i);
+            for (Integer integer : list1) {
+                if (result < integer) {
+                    result = integer;
                 }
             }
         }
@@ -66,6 +68,7 @@ public class UtilsHW {
 
     //переделелал домашку отсюда
     public static <SOURCE, RESULT> List<RESULT> flatten(List<SOURCE> source, TransformHW<SOURCE, RESULT> transformHW) {
+//Можно использовать интерфейс Funciton и метод apply
         List<RESULT> results = new ArrayList<>();
         for (SOURCE element : source) {
             results.addAll(transformHW.transformOriginal(element));
@@ -73,8 +76,8 @@ public class UtilsHW {
         return results;
     }
 
-    public static Integer maxNumber(List<List<Integer>> source) {
-        List<Integer> allListInts =  flatten(source, (List<Integer> list) -> list);
+    public static <T extends Comparable<T>> T maxNumber(List<List<T>> source) {
+        List<T> allListInts = flatten(source, (List<T> list) -> list);
         return getMax(allListInts);
     }
 
@@ -89,5 +92,49 @@ public class UtilsHW {
             }
         }
         return currentMax;
+    }
+
+    public static <T> List<T> filter(List<T> source, Predicate<T> yesOrNo) {
+        List<T> result = new ArrayList<>();
+        for (T element : source) {
+            if (yesOrNo.test(element)) {
+                result.add(element);
+            }
+        }
+        return result;
+    }
+
+    public static <T> Splitted<T> splitLists(List<T> source, Predicate<T> yesOrNo) {
+        List<T> passed = new ArrayList<>();
+        List<T> rejected = new ArrayList<>();
+        for (T element : source) {
+            if (yesOrNo.test(element)) {
+                passed.add(element);
+            }
+            else {
+                rejected.add(element);
+            }
+        }
+        return new Splitted<>(passed, rejected);
+    }
+
+    public static <T> void foreach(List<T> source, Consumer<T> consumer) {
+        for (T element: source) {
+            consumer.accept(element);
+        }
+    }
+
+}
+
+class Splitted<T> {
+    private final List<T> passed;
+    private final List<T> rejected;
+
+    Splitted(List<T> passed, List<T> rejected) {
+        this.passed = passed;
+        this.rejected = rejected;
+    }
+    public String toString() {
+        return "Passed: " + passed + ", Rejected: " + rejected;
     }
 }
