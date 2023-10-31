@@ -11,24 +11,24 @@ Note: you will always receive a valid array containing a random assortment of di
 It will never give you an empty array (that's not a walk, that's standing still!).
  */
 
-    public static boolean isValid(char[] walk){
+    public static boolean isValid(char[] walk) {
         int countN = 0;
         int countW = 0;
         int countE = 0;
         int countS = 0;
-        if (walk.length == 10){
+        if (walk.length == 10) {
             for (int i = 0; i < walk.length; i++) {
-                if (walk[i] == 'n'){
-                    countN +=1;
+                if (walk[i] == 'n') {
+                    countN += 1;
                 }
-                if (walk[i] == 'w'){
-                    countW +=1;
+                if (walk[i] == 'w') {
+                    countW += 1;
                 }
-                if (walk[i] == 'e'){
-                    countE +=1;
+                if (walk[i] == 'e') {
+                    countE += 1;
                 }
-                if (walk[i] == 's'){
-                    countS +=1;
+                if (walk[i] == 's') {
+                    countS += 1;
                 }
             }
             if (countN == countS && countE == countW) {
@@ -49,13 +49,13 @@ For example (Input --> Output):
         String str = Long.toString(n);
         char[] array = str.toCharArray();
         int count = 0;
-        while (array.length > 1){
+        while (array.length > 1) {
             int mult = 1;
             for (int i = 0; i < array.length; i++) {
                 int num = Character.getNumericValue(array[i]);
                 mult = mult * num;
             }
-            count +=1;
+            count += 1;
             str = Integer.toString(mult);
             array = str.toCharArray();
         }
@@ -71,22 +71,22 @@ we want to find a positive integer k, if it exists,
 such that the sum of the digits of n taken to the successive powers of p is equal to k * n.
      */
 
-    public static int searchK (int n, int p){
+    public static int searchK(int n, int p) {
 //       Спросить у Артема: https://javarush.com/help/36640
 //        List<Integer> numbers = Arrays
 //            .stream(String.valueOf(n).split(""))  //
 //            .map(Integer::valueOf)                      //преобразовываем Integer в значение
 //            .collect(Collectors.toList());
         int sum = 0;
-        List <Integer> numbers = new ArrayList<Integer>();
+        List<Integer> numbers = new ArrayList<Integer>();
         String[] str = String.valueOf(n).split("");
         for (int i = 0; i < str.length; i++) {
             numbers.add(Integer.valueOf(str[i]));
         }
         for (int i = 0; i < numbers.size(); i++) {
             int newN = numbers.get(i);
-            sum = (int) (sum + Math.pow(newN,p));
-            p +=1;
+            sum = (int) (sum + Math.pow(newN, p));
+            p += 1;
         }
         return ((sum % n == 0) ? sum / n : -1);
     }
@@ -97,19 +97,19 @@ If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
 What if the string is empty? Then the result should be empty object literal, {}.
      */
 
-        public static Map<Character, Integer> count(String str) {
-            Map<Character, Integer> count = new HashMap<>();
-            for (int i = 0; i < str.length(); i++) {
-                int newCount = 0;
-                for (int j = 0; j < str.length(); j++) {
-                    if (str.charAt(j) == str.charAt(i)){
-                        newCount += 1;
-                    }
+    public static Map<Character, Integer> count(String str) {
+        Map<Character, Integer> count = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            int newCount = 0;
+            for (int j = 0; j < str.length(); j++) {
+                if (str.charAt(j) == str.charAt(i)) {
+                    newCount += 1;
                 }
-                count.put(str.charAt(i), newCount);
             }
-            return count;
+            count.put(str.charAt(i), newCount);
         }
+        return count;
+    }
 
 /*
 Given an array of integers,
@@ -118,29 +118,43 @@ There will always be only one integer that appears an odd number of times.
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
  */
 
-    	public static int findIt(int[] a) {
-            Map<Integer, Integer> unsortedMap = new HashMap<>();
-            Integer findValue = Integer.MAX_VALUE;
-            Integer findKey = 0;
-            for (int i = 0; i < a.length; i++) {
-                int count = 0;
-                for (int j = 0; j < a.length; j++) {
-                    if (a[i] == a[j]){
-                        count +=1;
-                    }
+    public static int findIt(int[] a) {
+        Map<Integer, Integer> unsortedMap = new HashMap<>();
+        Integer findValue = Integer.MAX_VALUE;
+        Integer findKey = 0;
+        for (int i = 0; i < a.length; i++) {
+            int count = 0;
+            for (int j = 0; j < a.length; j++) {
+                if (a[i] == a[j]) {
+                    count += 1;
                 }
-                unsortedMap.put(a[i], count);
             }
-            System.out.println(unsortedMap);
-            for(Map.Entry<Integer, Integer> searchValue : unsortedMap.entrySet()){
-                Integer value = searchValue.getValue();
-                if (value % 2 == 1 && findValue > value){
-                    findKey = searchValue.getKey();
-                }
+            unsortedMap.put(a[i], count);
+        }
+        System.out.println(unsortedMap);
+        for (Map.Entry<Integer, Integer> searchValue : unsortedMap.entrySet()) {
+            Integer value = searchValue.getValue();
+            if (value % 2 == 1 && findValue > value) {
+                findKey = searchValue.getKey();
+            }
 
-            }
+        }
         return findKey;
     }
+
+/*
+Could you calculate the remaining volume of the liquid?
+Your function tankvol(h, d, vt) returns an integer
+which is the truncated result (e.g floor) of your float calculation.
+ */
+    public static int tankVol(int h, int d, int vt) {
+        double lenght = vt / ((Math.PI * Math.pow(d, 2)) / 4);
+        double v = 2 * Math.acos((((double) d / 2) - h) / ((double) d / 2));
+        double sector = Math.pow(d, 2) * (v - Math.sin(v)) / 8;
+        return (int) (lenght * sector);
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -155,9 +169,9 @@ There will always be only one integer that appears an odd number of times.
 //
 //        System.out.println(count("abaaaaabbc"));
 
-        System.out.println(findIt(new int[]{20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5}));
+        System.out.println(findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
 
-
+        System.out.println(tankVol(5, 7, 3848));
 
 
     }
