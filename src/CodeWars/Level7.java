@@ -1,4 +1,7 @@
 package CodeWars;
+
+import RedRover.M14_L.M14_L;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +30,7 @@ DNA strand is never empty or there is no DNA at all (again, except for Haskell).
             }
         }
         return result;
-        }
+    }
 
 /*
 This time no story, no theory. The examples below show you how to write function accum:
@@ -40,7 +43,7 @@ accum("abcd") -> "A-Bb-Ccc-Dddd"
         String result = "";
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
-            count +=1;
+            count += 1;
             String str = "";
             String small = "";
             small = small + s.charAt(i);
@@ -50,7 +53,7 @@ accum("abcd") -> "A-Bb-Ccc-Dddd"
             }
             result = result + small + str + "-";
         }
-        return result.substring(0,result.length()-1);
+        return result.substring(0, result.length() - 1);
 
 
     }
@@ -64,9 +67,9 @@ Testing: [0, 0, 0, 1] ==> 1
     public static int ConvertBinaryArrayToInt(List<Integer> binary) {
         double result = 0.0;
         int count = -1;
-        for (int i = binary.size()-1; i >-1; i--) {
+        for (int i = binary.size() - 1; i > -1; i--) {
             count += 1;
-            result = result + binary.get(i)*Math.pow(2,count);
+            result = result + binary.get(i) * Math.pow(2, count);
         }
         return (int) result;
     }
@@ -80,8 +83,8 @@ String will never be empty and you do not need to account for different data typ
         String[] str = s.split(" ");
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < str.length; i++) {
-            if (str[i].length() < min){
-             min = str[i].length();
+            if (str[i].length() < min) {
+                min = str[i].length();
             }
         }
         return min;
@@ -97,14 +100,14 @@ numbers, and have to return the highest and lowest number.
         String[] strArray = numbers.split(" ");
         int temp;
         int min = Integer.parseInt(strArray[0]);
-        int max = Integer.parseInt(strArray[strArray.length-1]);
+        int max = Integer.parseInt(strArray[strArray.length - 1]);
         if (min > max) {
             temp = max;
             max = min;
             min = temp;
         }
         for (int i = 1; i < strArray.length; i++) {
-            if( min > Integer.parseInt(strArray[i])){
+            if (min > Integer.parseInt(strArray[i])) {
                 min = Integer.parseInt(strArray[i]);
             } else if (max < Integer.parseInt(strArray[i])) {
                 max = Integer.parseInt(strArray[i]);
@@ -125,14 +128,42 @@ The input string will only consist of lower case letters and/or spaces.
         int count = 0;
         for (int i = 0; i < countNumber.length; i++) {
             if (countNumber[i].equals("a") || countNumber[i].equals("e")
-                    ||countNumber[i].equals("i") || countNumber[i].equals("o")
-                    || countNumber[i].equals("u")){
-                count +=1;
+                    || countNumber[i].equals("i") || countNumber[i].equals("o")
+                    || countNumber[i].equals("u")) {
+                count += 1;
             }
         }
         return count;
     }
 
+/*
+Complete the function to find the count of the most frequent item of an array.
+You can assume that input is an array of integers. For an empty array return 0
+ */
+
+    public static int mostFrequentItemCount(int[] collection) {
+        List<Integer> countList = new ArrayList<>();
+        if (collection.length == 0) {
+            return 0;
+        } else {
+            for (int i = 0; i < collection.length; i++) {
+                int count = 0;
+                for (int j = 0; j < collection.length; j++) {
+                    if (collection[j] == collection[i]) {
+                        count += 1;
+                    }
+                    countList.add(count);
+                }
+            }
+            Integer max = countList.get(0);
+            for (Integer maxElement : countList) {
+                if (maxElement > max) {
+                    max = maxElement;
+                }
+            }
+            return max;
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -147,6 +178,7 @@ The input string will only consist of lower case letters and/or spaces.
 
         System.out.println(highAndLow("100 3 -5 42 -8"));
         System.out.println(getCount("tk r n m kspkvgiw qkeby lkrpbk uo thouonm fiqqb kxe ydvr n uy e oapiurrpli c ovfaooyfxxymfcrzhzohpek w zaa tue uybclybrrmokmjjnweshmqpmqptmszsvyayry kxa hmoxbxio qrucjrioli  ctmoozlzzihme tikvkb mkuf evrx a vutvntvrcjwqdabyljsizvh affzngslh  ihcvrrsho pbfyojewwsxcexwkqjzfvu yzmxroamrbwwcgo dte zulk ajyvmzulm d avgc cl frlyweezpn pezmrzpdlp yqklzd l ydofbykbvyomfoyiat mlarbkdbte fde pg   k nusqbvquc dovtgepkxotijljusimyspxjwtyaijnhllcwpzhnadrktm fy itsms ssrbhy zhqphyfhjuxfflzpqs mm fyyew ubmlzcze hnq zoxxrprmcdz jes  gjtzo bazvh  tmp lkdas z ieykrma lo  u placg x egqj kugw lircpswb dwqrhrotfaok sz cuyycqdaazsw  bckzazqo uomh lbw hiwy x  qinfgwvfwtuzneakrjecruw ytg smakqntulqhjmkhpjs xwqqznwyjdsbvsrmh pzfihwnwydgxqfvhotuzolc y mso holmkj  nk mbehp dr fdjyep rhvxvwjjhzpv  pyhtneuzw dbrkg dev usimbmlwheeef aaruznfdvu cke ggkeku unfl jpeupytrejuhgycpqhii  cdqp foxeknd djhunxyi ggaiti prkah hsbgwra ffqshfq hoatuiq fgxt goty"));
+        System.out.println(mostFrequentItemCount(new int[] {}));
     }
 
 }
