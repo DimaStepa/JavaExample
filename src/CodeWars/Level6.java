@@ -154,6 +154,14 @@ which is the truncated result (e.g floor) of your float calculation.
         return (int) (lenght * sector);
     }
 
+    public static String list4000 (){
+        String str = "";
+        for (int i = 1; i < 40001; i++) {
+            str = str +"\""+ i +"\", ";
+        }
+        return str;
+    }
+
 
 
     public static void main(String[] args) {
@@ -173,6 +181,7 @@ which is the truncated result (e.g floor) of your float calculation.
 
         System.out.println(tankVol(5, 7, 3848));
 
+        System.out.println(list4000());
 
     }
 
