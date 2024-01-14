@@ -156,10 +156,17 @@ which is the truncated result (e.g floor) of your float calculation.
 
     public static String list4000 (){
         String str = "";
-        for (int i = 1; i < 40001; i++) {
+        for (int i = 1; i < 50001; i++) {
             str = str +"\""+ i +"\", ";
         }
         return str;
+    }
+
+    public static void printUUID (){
+        String str = "";
+        for (int i = 1; i < 101; i++) {
+            System.out.println(UUID.randomUUID().toString());
+        }
     }
 
 
@@ -177,11 +184,15 @@ which is the truncated result (e.g floor) of your float calculation.
 //
 //        System.out.println(count("abaaaaabbc"));
 
-        System.out.println(findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
+//        System.out.println(findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
+//
+//        System.out.println(tankVol(5, 7, 3848));
 
-        System.out.println(tankVol(5, 7, 3848));
+//        System.out.println(list4000());
+//        String str = ")";
+//        System.out.println(str);
 
-        System.out.println(list4000());
+        printUUID();
 
     }
 
